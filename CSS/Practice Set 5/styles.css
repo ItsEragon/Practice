@@ -1,0 +1,12 @@
+div {
+    height: 100px;
+    width: 100px;
+    color: white;
+    background-image: url("bg.png");
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    right: 0;
+    top: 0;
+    color: white;
+}

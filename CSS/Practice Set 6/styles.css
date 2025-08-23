@@ -1,0 +1,45 @@
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    background-color: aqua;
+}
+
+.outer {
+    width: 600px;
+    height: 600px;
+    background-color: #f15b25;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.inner {
+    width: 400px;
+    height: 400px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.green {
+    width: 200px;
+    height: 200px;
+    background-color: #006934;
+    border-radius: 50%;
+}
+
+/* Green: 006934 */
+/* White: ffffff */
+/* Orange: f15b25 */

@@ -1,0 +1,19 @@
+.loader {
+    width: 200px;
+    height: 200px;
+    /* background-color: aqua; */
+    border: 20px solid rgb(121, 57, 57);
+    border-radius: 50%;
+    border-top: 20px solid rgb(17, 240, 91);
+    animation: spinner 1s linear 0s infinite normal;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

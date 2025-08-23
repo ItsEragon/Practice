@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    color: #333;
+}
+
+button {
+    /* padding: 10px 20px; */
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}
+
+.choice-button {
+    width: 100px;
+    height: 100px;
+    border: none;
+    background-color: lightgreen;
+    border-radius: 50%;
+}
+
+.choice-image {
+    height: 75px;
+}
+
+.reset-btn {
+    padding: 10px 20px;
+}

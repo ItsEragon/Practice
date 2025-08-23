@@ -1,0 +1,27 @@
+/* #box {
+    background-color: blue;
+} */
+
+/* .heading {
+    color: red;
+}
+button{
+    background-color: green;;
+} */
+
+* {
+    font-family: 'Times New Roman';
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#outer {
+    font-size: 25px;
+}
+
+#inner {
+    font-size: 10px;
+}

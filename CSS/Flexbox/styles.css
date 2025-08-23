@@ -1,0 +1,37 @@
+body {
+    text-align: center;
+}
+
+div {
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    border: 2px solid black;
+}
+
+#container {
+    width: 800px;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+}
+
+#box1 {
+    background-color: indianred;
+}
+
+#box2 {
+    background-color: aqua;
+}
+
+#box3 {
+    background-color: green;
+}
+
+#box4 {
+    background-color: slateblue;
+}
+
+#box5 {
+    background-color: yellow;
+}
