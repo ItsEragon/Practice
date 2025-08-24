@@ -1,9 +1,9 @@
-import React from 'react'
+import styles from "./Header.module.css"
 
 const Header = () => {
     return (
         <div>
-            <h1>Healthy Food</h1>
+            <h1 className={styles.heading}>Healthy Food</h1>
         </div>
     )
 }
