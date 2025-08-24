@@ -16,9 +16,9 @@ function App() {
         <FoodItems items={foodItems} />
       </Container>
 
-      <Container>
+      {/* <Container>
         <p>Above is the list of healthy foods that are good for your wealth and well being.</p>
-      </Container>
+      </Container> */}
     </>
   )
 }

@@ -1,0 +1,15 @@
+.myItem {
+    background-color: khaki;
+}
+
+.mySpan {
+    font-weight: 500;
+    color: orangered;
+    font-size: x-large;
+}
+
+.button {
+    float: right;
+    font-weight: 500;
+    color: rgb(250, 224, 224);
+}
