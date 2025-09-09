@@ -4,9 +4,9 @@ import { TodoItemsContext } from '../store/todo-items-store'
 import { useContext } from 'react'
 
 
-const TodoItems = ({ onDelete }) => {
+const TodoItems = () => {
 
-  const todoItems = useContext(TodoItemsContext);
+  const { todoItems } = useContext(TodoItemsContext);
 
 
   return (
@@ -18,7 +18,7 @@ const TodoItems = ({ onDelete }) => {
             key={item.name}
             todoDate={item.dueDate}
             todoName={item.name}
-            onDelete={onDelete}>
+          >
           </TodoItem>
         )}
       </div>

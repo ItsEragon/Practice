@@ -4,7 +4,7 @@ import styles from "./WelcomeMessage.Module.css"
 
 const WelcomeMessage = () => {
 
-    const todoItems = useContext(TodoItemsContext);
+    const { todoItems } = useContext(TodoItemsContext);
 
     return (
         todoItems.length === 0 && <p className={styles.welcome}>Enjoy Your Day</p>
