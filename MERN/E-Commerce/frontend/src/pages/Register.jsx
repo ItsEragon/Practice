@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import axios from "axios"
+import { toast } from 'react-hot-toast'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     async function submit(e) {
         e.preventDefault();
@@ -18,7 +21,7 @@ const Register = () => {
                 phone
             })
             toast.success('Successfully registered!')
-            console.log(data);
+            navigate('/login');
         } catch (error) {
             toast.error("Something went wrong")
         }
