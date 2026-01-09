@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 dotenv.config()
 import userModel from "./model/user.js"
+import productModel from "./model/product.js"
 import connectDB from "./config/db.js"
 import bcrypt from "bcrypt"
 import cors from "cors"
@@ -73,6 +74,17 @@ app.get("/getAllUsers", async (req, res) => {
     }
 })
 
+app.post("/create", async (req, res) => {
+    try {
+        let body = req.body;
+        console.log(body);
+        await productModel.create(body)
+        res.send("Product Added Successfully")
+
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
