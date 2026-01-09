@@ -16,10 +16,10 @@ const Login = () => {
                 password,
             })
             toast.success('Successfully logged in!')
+            navigate('/products'); // Navigate to products page after login
             console.log(data);
             // if (response.data.data) {
             //     toast.success('Successfully logged in!')
-            //     // navigate('/'); // Navigate to home or dashboard
             // } else {
             //     toast.error("User not found")
             // }
