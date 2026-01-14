@@ -1,25 +1,45 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Post from './Post'
 import { PostList as PostListData } from "../store/post-list-store"
 import WelcomeMessage from './WelcomeMessage'
+import Loader from './Loader'
 
 const PostList = () => {
     const { postList, addInitialPosts } = useContext(PostListData)
+    const [fetching, setFetching] = useState(false)
 
-    const handleGetPostsClick = () => {
-        // console.log("get post clicked!");
+    useEffect(() => {
+        setFetching(true)
+        // console.log("Fetch started");
+
+        const controller = new AbortController()
         fetch('https://dummyjson.com/posts')
             .then(res => res.json())
             .then(data => {
                 addInitialPosts(data.posts);
+                setFetching(false)
+                // console.log("Fetch returned");
             });
 
-    }
+        return () => {
+            console.log("Cleaning up useEffect");
+
+        }
+        // console.log("Fetch ended");
+    }, []);
+
+
+    // const handleGetPostsClick = () => {
+    //     // console.log("get post clicked!");
+
+
+    // }
 
     return (
         <>
-            {postList.length === 0 && <WelcomeMessage onGetPostsClick={handleGetPostsClick} />}
-            {postList.map((post) => <Post key={post.id} post={post} />)}
+            {fetching && <Loader />}
+            {!fetching && postList.length === 0 && <WelcomeMessage />}
+            {!fetching && postList.map((post) => <Post key={post.id} post={post} />)}
         </>
     )
 }
