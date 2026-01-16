@@ -13,7 +13,9 @@ const PostList = () => {
         // console.log("Fetch started");
 
         const controller = new AbortController()
-        fetch('https://dummyjson.com/posts')
+        const signal = controller.signal;
+
+        fetch('https://dummyjson.com/posts', { signal })
             .then(res => res.json())
             .then(data => {
                 addInitialPosts(data.posts);
@@ -23,6 +25,7 @@ const PostList = () => {
 
         return () => {
             console.log("Cleaning up useEffect");
+            controller.abort();
 
         }
         // console.log("Fetch ended");
