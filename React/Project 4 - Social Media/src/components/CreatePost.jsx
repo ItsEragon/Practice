@@ -8,7 +8,8 @@ const CreatePost = () => {
     const userIdElement = useRef();
     const postTitleElement = useRef();
     const postBodyElement = useRef();
-    const reactionsElement = useRef();
+    const likesElement = useRef();
+    const dislikesElement = useRef();
     const tagsElement = useRef();
 
     const handleSubmit = (event) => {
@@ -16,16 +17,31 @@ const CreatePost = () => {
         const userId = userIdElement.current.value;
         const postTitle = postTitleElement.current.value;
         const postBody = postBodyElement.current.value;
-        const reactions = reactionsElement.current.value;
+        const likes = likesElement.current.value;
+        const dislikes = dislikesElement.current.value;
         const tags = tagsElement.current.value.split(' ');
 
         userIdElement.current.value = '';
         postTitleElement.current.value = '';
         postBodyElement.current.value = '';
-        reactionsElement.current.value = '';
+        likesElement.current.value = '';
+        dislikesElement.current.value = '';
         tagsElement.current.value = '';
 
-        addPost(userId, postTitle, postBody, reactions, tags);
+        fetch('https://dummyjson.com/posts/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                title: postTitle,
+                body: postBody,
+                reactions: { likes: parseInt(likes) || 0, dislikes: parseInt(dislikes) || 0 },
+                userId: userId,
+                tags: tags,
+            })
+        })
+            .then(res => res.json())
+            .then(post => addPost(post));
+
     }
 
     return (
@@ -43,8 +59,12 @@ const CreatePost = () => {
                 <textarea type="text" ref={postBodyElement} rows="4" className="form-control" id="body" placeholder='Tell more about it' />
             </div>
             <div className="mb-3">
-                <label htmlFor="reactions" className="form-label">Reactions</label>
-                <input type="text" ref={reactionsElement} className="form-control" id="reactions" placeholder='How many people reacted to this post' />
+                <label htmlFor="likes" className="form-label">Likes</label>
+                <input type="number" ref={likesElement} className="form-control" id="likes" placeholder='Number of likes' />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="dislikes" className="form-label">Dislikes</label>
+                <input type="number" ref={dislikesElement} className="form-control" id="dislikes" placeholder='Number of dislikes' />
             </div>
             <div className="mb-3">
                 <label htmlFor="tags" className="form-label">Hashtags</label>
